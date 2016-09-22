@@ -1,0 +1,29 @@
+<div id="header-wrapper" class="fix-w-dimension">
+    <div id="priHeaderdiv">
+        <ul id='headerpages'></ul>
+        <ul class="priHeaderul">
+            <% 
+            var hpmargin = (100/(headerlist.length-1));
+            for(var i=0; i<headerlist.length; i++){
+                if(headerlist[i].flwebprionum > 0){
+           %>
+                <li class="hpItem" style="margin-right:<%=hpmargin/(3.5)%>%"><span class="row-comd headerItem <%=(selectedItem!=null&&headerlist[i].id===selectedItem.id)?'selected':''%>" data-id="<%=(headerlist[i].id)%>"><%=(headerlist[i].title)%></span></li>
+           <%         
+                }
+           }
+           %>
+        </ul>
+    </div>
+    <div id="secHeaderdiv">
+        <ul>
+            <li class="hsItem" style="color: #4C53B4; <%=secheader==null?'width:100%;':'margin-right:10%;width:50%;'%>"><span class="row-comd headerItem <%=(selectedItem!=null&&headerlist[(headerlist.length-1)].id===selectedItem.id)?'selected':''%>" data-id="-1"><%=(headerlist[(headerlist.length-1)].title)%></span></li>
+            <%
+            if(secheader!=null){
+            %>
+            <li class="hsItem" style="color: #6D997B; width:49%; text-align: right;"><span class="row-comd footerItem <%=(footselectItem!=null&&secheader.id===footselectItem.id)?'selected':''%>" data-id="<%=(secheader.id)%>"><%=(secheader.title)%></span></li> 
+            <%
+            }
+            %>
+        </ul>
+    </div>
+</div>

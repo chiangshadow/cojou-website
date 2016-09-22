@@ -1,0 +1,24 @@
+<div id="footer-wrapper" class="fix-w-dimension">
+    <div id="priFooterrdiv">
+        <ul>
+        <li class="fpItem" style="width:100%;"><span class="row-comd footerItem <%=(selectedItem!=null&&footerlist[0].id===selectedItem.id)?'selected':''%>" data-id="<%=footerlist[0].id%>"><%=footerlist.length>0?footerlist[0].title:""%></span></li>
+        </ul>
+    </div>
+    <div id="secFooterdiv">      
+        <ul>
+         <% 
+            var fpwidth = 0;
+            if(footerlist.length>2){
+                 fpwidth = (100/(footerlist.length-2));
+            }
+            for(var i=0; i<footerlist.length; i++){
+                if(footerlist[i].priorityset > 2){
+        %>
+        <li class="fsItem"><%=((i+1)!=footerlist.length&&footerlist[i].priorityset>2)?"<span class='v-line'>|</span>":""%><span class="row-comd footerItem <%=(selectedItem!=null&&footerlist[i].id===selectedItem.id)?'selected':''%>" data-id="<%=(footerlist[i].id)%>"><%=(footerlist[i].title)%></span></li>
+        <%                        
+                }
+            }
+        %>
+        </ul>
+    </div>
+</div>
